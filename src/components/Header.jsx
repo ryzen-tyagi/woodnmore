@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { FaShoppingCart } from 'react-icons/fa'; // Cart icon from react-icons
 import { useState } from 'react'; // Import useState to handle menu toggle
 import { FaHamburger } from "react-icons/fa";
-
+import logo from "../../public/icon1.jpg";
+import logo1 from "../../public/logo.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to control menu visibility
 
@@ -21,8 +22,18 @@ const Header = () => {
     >
       <div className="container mx-auto flex justify-between items-center px-6">
         {/* Logo Section */}
-        <div className="text-brown-700 text-2xl font-bold">
-          <Link to="/">WoodNmore</Link>
+        <div className="text-brown-700 text-2xl flex font-bold">
+          <div>
+            <motion.img
+              src={logo}
+              className="size-10 bg-transparent"
+              alt="Logo"
+              initial={{ opacity: 0, scale: 0.8 }} // Starting properties
+              animate={{ opacity: 1, scale: 1 }} // Properties after load
+              transition={{ duration: 0.8 }} // Duration of animation
+              whileHover={{ scale: 1.1 }} // Slightly enlarge on hover
+            />            </div>
+          <div className=''><Link to="/">WoodNmore</Link></div>
         </div>
 
         {/* Navigation Links */}
@@ -64,6 +75,7 @@ const Header = () => {
               className="text-brown-700 hover:text-yellow-600"
               onClick={toggleMenu} // Toggle menu on button click
             >
+              <logo />
               <FaHamburger size={24} className='' />
             </button>
           </div>
